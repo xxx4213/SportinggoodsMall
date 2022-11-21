@@ -1,0 +1,38 @@
+server:
+  port: 8089
+spring:
+  servlet:
+    multipart:
+      max-file-size: 500MB
+      max-request-size: 500MB
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/supermarket?verifyServerCertificate=false&characterEncoding=UTF-8&useSSL=false
+    username: root
+    password: root
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.jdbc.Driver
+  #整合vue、模板引擎
+  thymeleaf:
+    option: classpath:/templates/
+    suffix: .html
+    mode: HTML5
+    encoding: UTF-8
+    servlet:
+      content-type: text/html
+    cache: false
+  #整合vue、模板引擎
+
+mybatis-plus:
+  mapper-locations: classpath:/mapper/*Dao.xml
+  typeAliasesPackage: com.example.demo.entity
+#  configuration:
+#    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+pagehelper:
+  helperDialect: mysql
+  reasonable: true
+  supportMethodsArguments: true
+  params: count=countSql
+logging:
+  level:
+    com.zhi.shop.dao: debug
